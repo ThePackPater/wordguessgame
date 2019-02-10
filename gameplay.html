@@ -70,70 +70,94 @@
 
         <h2 style="text-align: center"><b>PRESS any LETTER to start!</b></h2>
         <br>
-        <h4>I'll give ya 12 shots!</h4>
+        <p>I'll give ya 12 shots and a hint!<br> (they're cowboy words, igit!)</p>
         <br>
         <br>
-        <div id="goodShots"></div>
+        <div id="display"><b></b></div>
         <br>
-        <h3>missed shots...
-            <div id="badshots"></div>
+        <p>missed shots...
+            <div id="usertext"></div>
             <br>
             <br>
             <br>
             <br>
-            <div id="badShots"></div>shots to go...
+            <div id="guesses"></div>shots to go...
             <br>
-        </h3>
+        </p>
         <div class="audiobar">Well, how 'bout some figurin' music!<br>
             <audio controls>
                 <source src="theheavy.mp3" type="audio/mpeg">
-              </audio>
+            </audio>
             <br>
         </div>
 
-
-
         <Script type="text/javascript">
 
-            document.onkeyup = function startGuessing() {
+            function startGuessing() {
 
-            var playerGuess = ["a","b","c","d","e","f","g","h","i","j","k","l","m","m","o","p","q","r","s","t","u","v","w","x","y", "z"];
 
-            var wordBank = ["partner", "rustler", "sheriff", "cowpoke", "western", "rawhide", "cowgirl", "buzzard", "lawless", "justice", "gallows"];
+                var wordBank = ["partner", "rustler", "sheriff", "cowpoke", "western", "rawhide", "cowgirl", "buzzard", "lawless", "justice", "gallows"];
 
-            var hiddenWord = wordBank[Math.floor(Math.random() * wordBank.length)];
+                var randomPick = wordBank[Math.floor(Math.random() * wordBank.length)];
+                
+                var hiddenWord = [];
 
-            for (var i = 0; i < placeHolder.length; i++) {
+                for (var i = 0; i < randomPick.length; i++) {
 
-                placeHolder[i] = " _ ";
+                        hiddenWord[i] = "_";
+
+                    }
+
+                document.getElementById("display").innerHTML=hiddenWord;
+
+                console.log(hiddenWord);
+
+                var leftOvers = randomPick.length;
+            }
+
+            startGuessing();
+
+            document.onkeyup = pickaLetter(event); {
+
+            var userPick = event.key;
+
+            var userGuess = ["a" || "b" || "c" || "d" || "e" || "f" || "g" || "h" || "i" || "j" || "k" || "l" || "m" || "m" || "o" || "p" || "q" || "r" || "s" || "t" || "u" || "v" || "w" || "x" || "y" || "z"];
+
+            var guesses = 12;
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             }
 
-            var placeHolder = document.getElementById("goodShots");
-
-            var badshots = document.getElementById("badShots");
-
-            var misses = document.getElementById("misses");
-
-}
 
 
-            //var badShots = [];
-
-            //var misses = 13;
-
-            //var goodShots = [];
-
-            //
-
-            //document.getElementById("playerGuess").innerHTML = placeHolder.join(" ");
-
-            //document.getElementById("playerGuess").innerHTML = secretBlanks(hiddenWord)
-
-          
 
 
-        </Script>
-</body>
+
+
+
+
+
+              
+        </script>
+
+    </body>
 
 </html>
