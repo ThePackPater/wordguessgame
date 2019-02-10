@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 
     <title>gameplay</title>
@@ -31,94 +33,117 @@
             margin-right: 5%;
             margin-top: 2%;
             width: 40%;
+            height: 60%;
             text-align: center;
             padding: 2%;
             position: relative;
+        }
+
+        .audiobar {
+
+            background-color: antiquewhite;
+            border: 3px solid black;
+            border-radius: 15px;
+            padding: 2%;
+            margin: 1%;
+            align-content: center;
+
+        }
+
+        button {
+
+            text-emphasis: bold;
+            align-self: center;
+            background-color: blue;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+
         }
     </style>
 
 </head>
 
 <body>
-    <div>
 
-    </div>
 
     <div class="gameplay">
 
-        <h1 style="text-align: center"><b>PRESS a LETTER to start!</b></h1>
+        <h2 style="text-align: center"><b>PRESS any LETTER to start!</b></h2>
         <br>
-        <h2><b>I'll give ya 12 shots!</b></h2>
+        <h4>I'll give ya 12 shots!</h4>
         <br>
         <br>
         <div id="goodShots"></div>
         <br>
         <h3>missed shots...
-        <div id="badshots"></div></h3>
-        <br>
-        <br>
-        <br>
-        <h3><div id="badShots"></div>shots to go...</h3>
+            <div id="badshots"></div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div id="badShots"></div>shots to go...
+            <br>
+        </h3>
+        <div class="audiobar">Well, how 'bout some figurin' music!<br>
+            <audio id="myAudio">
+                <source src="/assets/8bitheavy.mp3" type="audio/mpeg">
+            </audio>
+            <button onclick="playAudio()" type="button">Play</button>
+            <button onclick="pauseAudio()" type="button">Pause</button>
+            <br>
+        </div>
 
-    </div>
 
-    <Script type="text/javascript">
 
-        var playerGuess = ["A" || "B" || "C" || "D" || "E" || "F" || "G" || "H" || "I" || "J" || "K" || "L" || "M" || "N" || "O" || "P" || "Q" || "S" || "T" || "U" || "V" || "W" || "X" || "Y" || "Z"];
+        <Script type="text/javascript">
 
-        var wordBank = ["partner", "rustler", "sheriff", "cowpoke", "western", "rawhide", "cowgirl", "buzzard", "lawless", "justice", "gallows"];
+            document.onkeyup = function startGuessing() {
 
-        var hiddenWord = wordBank[Math.floor(Math.random() * wordBank.length)];
+            var playerGuess = ["a","b","c","d","e","f","g","h","i","j","k","l","m","m","o","p","q","r","s","t","u","v","w","x","y", "z"];
 
-        var placeHolder = document.getElementById("goodShots");
+            var wordBank = ["partner", "rustler", "sheriff", "cowpoke", "western", "rawhide", "cowgirl", "buzzard", "lawless", "justice", "gallows"];
 
-        var badshots = document.getElementById("badShots");
+            var hiddenWord = wordBank[Math.floor(Math.random() * wordBank.length)];
 
-        var misses = document.getElementById("misses");
+            for (var i = 0; i < placeHolder.length; i++) {
 
-      
+                placeHolder[i] = " _ ";
 
-        //for (var i = 0; i < placeHolder.length; i++) {
+            }
 
-            //placeHolder[i] = " _ ";
+            var placeHolder = document.getElementById("goodShots");
 
-        //}
+            var badshots = document.getElementById("badShots");
 
-        //var badShots = [];
+            var misses = document.getElementById("misses");
 
-        //var misses = 13;
+}
 
-        //var goodShots = [];
 
-        //document.onkeyup = function startGuessing() {
+            //var badShots = [];
+
+            //var misses = 13;
+
+            //var goodShots = [];
+
+            //
 
             //document.getElementById("playerGuess").innerHTML = placeHolder.join(" ");
 
             //document.getElementById("playerGuess").innerHTML = secretBlanks(hiddenWord)
 
-        //}
+            var x = document.getElementById("myAudio");
 
-    </Script>
+            function playAudio() {
+                x.play();
+            }
 
-
-
-
-
-
-
-
+            function pauseAudio() {
+                x.pause();
+            }
 
 
-
-
-
-
-
-
-
-
-
-
+        </Script>
 </body>
 
 </html>
