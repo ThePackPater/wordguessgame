@@ -57,7 +57,7 @@
             size: inherit;
             background-color: blue;
             color: white;
-            font-family: 'Press Start 2P', cursive;
+            font-family: 'Press getStarted 2P', cursive;
 
         }
     </style>
@@ -69,9 +69,9 @@
 
     <div class="gameplay">
 
-        <h2 style="text-align: center"><b>PRESS any LETTER to start!</b></h2>
+        <h2 style="text-align: center"><b>PRESS any "LETTER" to get started!</b></h2>
         <br>
-        <p>I'll give ya 12 shots and a hint!<br> (they're cowboy words, igit!)</p>
+        <p>I'll give ya 10 shots and a hint!<br> (they're cowboy words, igit!)</p>
         <br>
         <br>
         <h2 id="goodShots"><b></b></h2>
@@ -81,8 +81,8 @@
             <br>
             <br>
             <br>
-            <br>
             <div id="wrong"></div>shots to go...
+            <br>
             <br>
         </p>
         <div class="audiobar">Well, how 'bout some figurin' music!<br>
@@ -94,18 +94,17 @@
 
         <Script type="text/javascript">
 
-            var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
-            var guess; 
-            var letters = []; 
-            var wrongLetters = []; 
-            var wrong = 12;
-            var correct = 0; 
+            var guess;
+            var letters = [];
+            var wrongLetters = [];
+            var wrong = 10;
+            var correctGuesses = 0;
 
-            var wordList = ["partner", "rustler", "sheriff", "cowpoke", "western", "rawhide", "cowgirl", "buzzard", "lawless", "justice", "gallows"];
+            var wordList = ["partner", "rustler", "cowpoke", "western", "rawhide", "cowgirl", "chicken", "justice"];
 
             var word = wordList[Math.floor(Math.random() * wordList.length)];
 
-            function start() {
+            function getStarted() {
 
                 for (i = 0; i < word.length; i++) {
 
@@ -119,7 +118,7 @@
 
             }
 
-            function checkLetter() {
+            function writeorWrong() {
 
                 document.onkeyup = function (event) {
 
@@ -137,11 +136,11 @@
 
                             found = true;
 
-                            correct++;
+                            correctGuesses++;
 
-                            if (correct===8) {
+                            if (correctGuesses === 7) {
 
-                            location.replace("youwin.html");
+                                location.replace("youwin.html");
 
                             }
 
@@ -164,50 +163,18 @@
 
                             location.replace("youlose.html");
 
-
-
                         }
 
                     }
                 }
             }
 
-            start();
+            getStarted();
 
-            checkLetter();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            writeorWrong();
 
         </script>
 
-</body>
+    </body>
 
 </html>
